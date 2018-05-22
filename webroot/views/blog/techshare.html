@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<title>chengyakun11个人博客</title>
+    {% include "blog/meta.html" %}
+<link href="/views/blog/css/list.css" rel="stylesheet">
+
+</head>
+<body>
+  {% include "blog/header.html" %}
+<article class="blogs">
+<h1 class="t_nav"><span>“慢生活”不是懒惰，放慢速度不是拖延时间，而是让我们在生活中寻找到平衡。</span>
+  <!-- <a href="/" class="n1">网站首页</a><a href="/" class="n2">慢生活</a> -->
+</h1>
+<div class="newblog left">
+    <div id="topics-boby">
+
+    </div>
+  
+    <div id="pagebar" style="display:none; color: #999999;"></div>
+
+    <div class="blank"></div>
+    <!--<div class="ad">  
+      <img src="/views/blog/images/ad.png">
+    </div>-->
+
+</div>
+{% include "blog/right.html" %}
+</article>
+{% include "blog/footer.html" %}
+
+<script id="topic-item-tpl" type="text/template">
+  {@each topics as t}
+  
+  <h2>${t.title}</h2>
+   <p class="dateview"><span>发布时间：${t.update_time}</span><span>作者：${t.user_name}</span><span>分类：[<a href="/news/life/">程序人生</a>]</span></p>
+   <figure><img src="/views/blog/images/001.png"></figure>
+   <ul class="nlist">
+     <p style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;">${t.content}</p>
+     <a title="/" href="/blog/topic/${t.id}/detail" target="_self" class="readmore">阅读全文>></a>
+   </ul>
+   <div class="line"></div>
+
+  {@/each}
+</script>
+
+<script src="/views/blog/js/silder.js"></script>
+<script type="text/javascript" src="/views/blog/js/blogtechshare.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        APP.BlogTechshare.init();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+//
+//  Filter404.swift
+//  Perfect
+//
+//  Created by apple on 2018/4/24.
+//
+//
+import PerfectHTTP
+
+public  func Filter404(data: [String:Any]) throws -> HTTPResponseFilter {
+    return _Filter404()
+}
+
+
+struct _Filter404: HTTPResponseFilter {
+    func filterBody(response: HTTPResponse, callback: (HTTPResponseFilterResult) -> ()) {
+        callback(.continue)
+    }
+    
+    func filterHeaders(response: HTTPResponse, callback: (HTTPResponseFilterResult) -> ()) {
+        
+        if case .notFound = response.status {
+            response.setBody(string: "文件 \(response.request.path) 不存在。")
+            response.setHeader(.contentLength, value: "\(response.bodyBytes.count)")
+            response.completed()
+            callback(.done)
+        } else {
+            callback(.continue)
+        }
+    }
+}
+

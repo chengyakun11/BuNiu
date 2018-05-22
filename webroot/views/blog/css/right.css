@@ -1,0 +1,100 @@
+
+/*天气*/
+.weather {
+    background: url(../images/weather_bg.jpg) no-repeat;
+    height: 88px;
+    margin: 20px 0;
+    padding: 20px 0 0 75px;
+}
+
+/*news 最新文章、点击排行、友情链接*/
+.news h3{
+    font-size: 14px;
+    background: url(../images/r_title_bg.jpg) repeat-x center;
+}
+
+.news h3 p{
+    background: #fff;
+    width: 70px
+}
+
+.news h3 span {
+    color: #65b020
+}
+
+.news ul {
+    margin-bottom: 20px
+}
+
+.news ul li a:hover {
+    text-decoration: underline
+}
+
+/*最新文章*/
+.rank {
+    margin: 10px 0
+}
+.rank li {
+    height: 25px;
+    line-height: 25px;
+    clear: both;
+    padding-left: 5px;
+    overflow: hidden;
+    padding-left: 15px;
+    background: url(../images/li.jpg) no-repeat left center;
+}
+.rank li a {
+    color: #333;
+}
+
+/*点击排行*/
+.news h3.ph span {
+    color: #37ccca;
+}
+.paih {
+    background: url(../images/ph.jpg) no-repeat left 8px;
+    margin: 10px 0
+}
+.paih li {
+    line-height: 30px;
+    height: 30px;
+    overflow: hidden;
+    padding-left: 24px;
+    border-bottom: #CCC dotted 1px
+}
+
+
+/*友情链接*/
+.news h3.links span {
+    color: #F17B6B;
+}
+.website {
+    margin: 10px 0;
+    background: #F3F3F3;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.website li {
+    line-height: 26px;
+    text-shadow: #fff 1px 1px 1px;
+    height: 26px;
+}
+
+/*最近访客*/
+.visitors h3 {
+    font-size: 14px;
+    background: url(../images/r_title_bg.jpg) repeat-x center;
+}
+.visitors h3 p {
+    background: #fff;
+    width: 70px
+}
+.visitors ul {
+    margin: 20px 0
+}
+/*bdshare*/
+.bdshare_t {
+    margin: 20px 0
+}
+

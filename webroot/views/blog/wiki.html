@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<title>chengyakun11个人博客</title>
+
+    {% include "blog/metasmall.html" %}
+<link href="/views/blog/css/detail.css" rel="stylesheet">
+
+<style type="text/css">
+  /* Basic Grey */
+  .blogs p {
+margin-bottom: 8px;
+font-size: 14px;
+}
+
+.blogs a:link, a:visited {
+    text-decoration: none;
+    color: #900b09;
+    background: transparent;
+    border-bottom: 1px solid #900b09;
+}
+
+</style>
+</head>
+<body>
+  {% include "blog/header.html" %}
+<article class="blogs">
+  <h1 class="t_nav"><span>您当前的位置：<a href="/index.html">首页</a>&nbsp;&gt;&nbsp;wiki</span>
+    <!-- <a href="/" class="n1">网站首页</a><a href="/" class="n2">日记</a> -->
+  </h1>
+
+  <h2 class="c_titile">目录</h2>
+  <p>swiftguide</p>
+  <p><a href="https://developer.apple.com">Apple Developer</a></p>
+  <p><a href="https://developer.apple.com/library/content/navigation/">Guides and Sample Code</a></p>
+  <p><a href="http://tool.oschina.net">在线工具 —— 开源中国社区</a></p>
+  <p><a href="http://dev.swiftguide.cn">Swift语言指南</a></p>
+  <p><a href="https://github.com/PerfectExamples">Perfect Examples</a></p>
+  <p><a href="https://github.com/vapor-community">Vapor Community</a></p>
+  <p><a href="https://shared-baby.herokuapp.com">Shared Baby</a></p>
+  
+
+
+  <!-- <div class="index_about">
+  </div> -->
+  <!-- <aside class="right">
+  </aside> -->
+  
+</article>
+{% include "blog/footer.html" %}
+<script src="/views/blog/js/silder.js"></script>
+</body>
+</html>

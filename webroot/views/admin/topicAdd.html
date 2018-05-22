@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/views/admin/style/css/ch-ui.admin.css">
+    <link rel="stylesheet" href="/views/admin/style/font/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="/views/admin/style/js/jquery.js"></script>
+</head>
+
+<body>
+    <!--面包屑导航 开始-->
+    <div class="crumb_warp">
+        <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
+        <i class="fa fa-home"></i>
+        <a href="#">首页</a> &raquo;
+        <a href="#">文章管理</a> &raquo; 添加文章
+    </div>
+    <!--面包屑导航 结束-->
+
+    <!--结果集标题与导航组件 开始-->
+    <div class="result_wrap">
+        <div class="result_title">
+            <h3>快捷操作</h3>
+        </div>
+        <div class="result_content">
+            <div class="short_wrap">
+                <a href="#">
+                    <i class="fa fa-plus"></i>新增文章</a>
+                <a href="#">
+                    <i class="fa fa-recycle"></i>批量删除</a>
+                <a href="#">
+                    <i class="fa fa-refresh"></i>更新排序</a>
+            </div>
+        </div>
+    </div>
+    <!--结果集标题与导航组件 结束-->
+
+    <div class="result_wrap">
+        <!-- <form action="#" method="post"> -->
+        <table class="add_tab">
+            <tbody>
+                <tr>
+                    <th width="120">
+                        <i class="require">*</i>分类：</th>
+                    <td>
+                        <select name="topic">
+                                {% if topic and topic.category_id==3 %}
+                                <option value ="3" selected="selected" >技术分享</option>
+                                {% elif topic and topic.category_id==2 %}
+                                <option value ="3">技术分享</option>
+                                {% elif topic and topic.category_id==1 %}
+                                <option value ="3">技术分享</option>
+                                {% else %}
+                                <option value ="3" selected="selected">技术分享</option>
+                                {% endif %}
+
+
+                                <option value ="2" {%if topic.category_id==2   %} selected="selected" {% endif %}>碎言碎语</option>
+                                <option value ="1" {%if topic.category_id==1   %} selected="selected" {% endif %}>慢生活</option>
+                            
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <i class="require">*</i>文章名称：</th>
+                    <td>
+
+                        {% if topic %}
+                        <input type="hidden" name="topicid" value="{{topic.id}}">
+                        <input type="text" class="lg" name="topictitle" value="{{topic.title}}"> 
+                        {% else %}
+                        <input type="hidden" name="topicid" value="">
+                        <input type="text" class="lg" name="topictitle" value=""> 
+                        {% endif %}
+                        <p id="tip" style="color: grey">文章名称可以写30个字</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>详细内容：</th>
+                    <td>
+                            {% if topic %}
+                            <textarea class="lg" name="topiccontent">{{topic.content}}</textarea>
+                            {% else %}
+                            <textarea class="lg" name="topiccontent"></textarea>
+                            {% endif %}
+                        
+                        <p id="contenttip" style="color: grey">标题可以写30个字</p>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <th>
+                        <i class="require">*</i>缩略图：</th>
+                    <td>
+                        <input type="file" name="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>是否是精华：</th>
+                    <td>
+                        <label for="">
+                            <input type="radio" name="">是</label>
+                        <label for="">
+                            <input type="radio" name="">否</label>
+                    </td>
+                </tr> -->
+                <tr>
+                    <th></th>
+                    <td>
+                        <input type="submit" id="login-btn" value="提交">
+                        <input type="button" class="back" onclick="history.go(-1)" value="返回">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- </form> -->
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#login-btn").click(function () {
+                var topicid = $("input[name=topicid]").val();
+                var category_id =$("select[name=topic]").val();
+                var topictitle = $("input[name=topictitle]").val();
+                var topiccontent = $("textarea[name=topiccontent]").val();
+                if (!topictitle) {
+                    $("#tip").text("文章名称不能为空");
+                    document.getElementById("tip").style.color = "red";
+                    return;
+                }
+                if (!topiccontent) {
+                    $("#contenttip").text("文章内容不能为空");
+                    document.getElementById("contenttip").style.color = "red";
+                    return;
+                }
+                var urlStr = "adminAddTopic";
+                if (!topicid) {
+                    urlStr = "/admin/adminAddTopic";
+                } else {
+                    urlStr = "/admin/adminUpdateTopic";
+                }
+                $.ajax({
+                    url: urlStr,
+                    type: 'post',
+                    data: {
+                        topictitle: topictitle,
+                        topiccontent:topiccontent,
+                        category_id: category_id,
+                        topicid: topicid,
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.success) {
+                            self.parent.document.getElementById("mainframe").src =
+                                "/views/admin/topicList.html";
+                        } else {
+                            $("#tip").text(result.msg);
+                            document.getElementById("tip").style.color = "red";
+                        }
+                    },
+                    error: function () {
+                        $("#tip").text("保存文章请求出错!");
+                        document.getElementById("tip").style.color = "red";
+                    }
+                });
+            })
+        });
+    </script>
+</body>
+
+</html>

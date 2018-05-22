@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>chengyakun11个人博客</title>
+{% include "blog/meta.html" %}
+<link href="/views/blog/css/index.css" rel="stylesheet">
+</head>
+<body>
+    {% include "blog/header.html" %}
+<!-- <div class="banner">
+  <section class="box">
+    <ul class="texts">
+      <p>打了死结的青春，捆死一颗苍白绝望的灵魂。</p>
+      <p>为自己掘一个坟墓来葬心，红尘一梦，不再追寻。</p>
+      <p>加了锁的青春，不会再因谁而推开心门。</p>
+    </ul>
+    <div class="avatar"><a href="#"><span>chengyakun11</span></a> </div>
+  </section>
+</div> -->
+<!-- <div class="template">
+  <div class="box">
+    <h3>
+      <p><span>个人博客</span>模板 Templates</p>
+    </h3>
+    <ul>
+      <li><a href="/"  target="_blank"><img src="/views/blog/images/01.jpg"></a><span>仿新浪博客风格·梅——古典个人博客模板</span></li>
+      <li><a href="/" target="_blank"><img src="/views/blog/images/02.jpg"></a><span>黑色质感时间轴html5个人博客模板</span></li>
+      <li><a href="/"  target="_blank"><img src="/views/blog/images/03.jpg"></a><span>Green绿色小清新的夏天-个人博客模板</span></li>
+      <li><a href="/" target="_blank"><img src="/views/blog/images/04.jpg"></a><span>女生清新个人博客网站模板</span></li>
+      <li><a href="/"  target="_blank"><img src="/views/blog/images/02.jpg"></a><span>黑色质感时间轴html5个人博客模板</span></li>
+      <li><a href="/"  target="_blank"><img src="/views/blog/images/03.jpg"></a><span>Green绿色小清新的夏天-个人博客模板</span></li>
+    </ul>
+  </div>
+</div> -->
+<article>
+  <h2 class="title_tj">
+    <p>最新<span>文章</span></p>
+  </h2>
+  <div class="bloglist left">
+
+      <div id="topics-boby"></div>
+      <div id="pagebar" style="display:none; color: #999999;"></div>
+  </div>
+  <!-- <div class="pagination2 left" id="pagebar" style="display:none; color: #999999;overflow: hidden;"></div> -->
+  {% include "blog/right.html" %}
+</article>
+
+
+
+{% include "blog/footer.html" %}
+
+
+<script id="topic-item-tpl" type="text/template">
+    {@each topics as t}
+    
+    <h3>${t.title}</h3>
+    <figure><img src="/views/blog/images/001.png"></figure>
+    <ul>
+      <p style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;">${t.content}</p>
+      <a title="/" href="/blog/topic/${t.id}/detail" target="_self" class="readmore">阅读全文>></a>
+    </ul>
+    <p class="dateview"><span>${t.update_time}</span><span>作者：${t.user_name}</span><span>个人博客：[<a href="/news/life/">程序人生</a>]</span></p>    
+    
+    {@/each}
+</script>
+<script src="/views/blog/js/silder.js"></script>
+
+<script type="text/javascript" src="/views/blog/js/blogindex.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        APP.BlogIndex.init();
+    });
+</script>
+
+</body>
+</html>

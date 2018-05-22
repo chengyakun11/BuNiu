@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/views/admin/style/css/ch-ui.admin.css">
+	<link rel="stylesheet" href="/views/admin/style/font/css/font-awesome.min.css">
+	<script type="text/javascript" src="/views/admin/style/js/jquery.js"></script>
+    <script src="/assets/js/MD5.min.js"></script>
+    <script type="text/javascript">
+        var APP = {
+            pwd_secret:"0bfe35421edab14541ec9ee17ccba443"
+        };
+    </script>
+</head>
+<body style="background:#F3F3F4;">
+	<div class="login_box">
+		<h1>Blog</h1>
+		<h2>欢迎使用博客管理平台</h2>
+		<div class="form">
+			<div style="color:red;display:none;margin-bottom:10px;margin-left:20px" id="tip">用户名错误</div>
+			<!-- <form action="#" method="post"> -->
+				<ul>
+					<li>
+					<input type="text" name="username" class="text"/>
+						<span><i class="fa fa-user"></i></span>
+					</li>
+					<li>
+						<input type="password" name="password" class="text"/>
+						<span><i class="fa fa-lock"></i></span>
+					</li>
+<!--                    <li>-->
+<!--                        <input type="text" class="code" name="code"/>-->
+<!--                        <span><i class="fa fa-check-square-o"></i></span>-->
+<!--                        <img src="#" alt="">-->
+<!--                    </li>-->
+					<li>
+						<input type="submit" id="login-btn" value="立即登陆"/>
+					</li>
+				</ul>
+			<!-- </form> -->
+            <p><a href="#">返回首页</a> &copy; 2016 Powered by <a href="#" target="_blank">chengyakun11</a></p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#login-btn").click(function(){
+				var username =$("input[name=username]").val();
+				var password = $("input[name=password]").val();
+				$("#tip").hide();
+				if(!username) {
+					$("#tip").text("用户名不能为空");
+					$("#tip").show();
+					return;
+				}
+				if(!password || password.length<6 || password.length>50){
+					$("#tip").text("密码长度须为6~50位!");
+					$("#tip").show();
+					return;
+				}
+				$.ajax({
+					url : '/admin/adminLogin',
+					type : 'post',
+					data : {
+						username: username,
+						password: hex_md5(password + APP.pwd_secret)
+					},
+					dataType : 'json',
+					success : function(result) {
+						if(result.success){
+							window.location.href="/admin/adminIndex";
+						}else{
+							$("#tip").text(result.msg);
+							$("#tip").show();
+						}
+					},
+					error : function() {
+						$("#tip").text("登录请求出错!");
+						$("#tip").show();
+					}
+				});
+			})
+		});
+	</script>
+</body>
+</html>

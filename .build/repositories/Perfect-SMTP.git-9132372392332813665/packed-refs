@@ -1,0 +1,36 @@
+# pack-refs with: peeled fully-peeled 
+1c70d851a6ed18aac6f9cb56fac5365f743f6d18 refs/heads/master
+e849a72c8f83e5ae8a69a505d0131bd669f01153 refs/pull/1/head
+0c7d64da1ef658d1d2e4451877a2f35d36ca922b refs/pull/2/head
+db49061d8c039c854f4ec16906c9d738e48a6a50 refs/pull/3/head
+fdda80c6b214425f5750e89636af022d2100890c refs/pull/4/head
+b910273b42a94ed080c2e37bff11ded8659bd6b9 refs/pull/4/merge
+9a93a201db8ba12b6e5ff3632dbea9c4da215fea refs/pull/5/head
+347bded6d6456aa67b26fcf4c2b0613b1601c92d refs/pull/5/merge
+eabea9a992755e3b9791d69b325c0cda17784dff refs/pull/6/head
+ce384914636c82898d7f3fc31df5ad7e90e23f7f refs/pull/7/head
+2b7596add3616d31adef1c93fb08ec88ed8076d6 refs/pull/8/head
+2f51ec2a03db4060bf0a2fd35f98644a1ca27869 refs/tags/1.0.0
+2ec53d5864544d5a3cdfeb6034f40904172fe6f0 refs/tags/1.0.1
+79150c895e0d709b18d0c890cee71b30b84cb1b2 refs/tags/1.0.2
+497591f576a357bb4a17ce404c1a06fa4ac8a54c refs/tags/1.0.3
+^e2175e3fbf55852af5f6785a39803abd37b54b0a
+f9d9b82fe2f8ed5b449eabc4156ac5cbe590b0e1 refs/tags/1.0.4
+59f09aa560f8db79510e97cc2fabe1358acaf87f refs/tags/1.0.5
+d79b99e2068e843ca65b6d2cd2a305ebb29735d1 refs/tags/1.0.6
+9c3fcfa589d6c28be7bfa6baf1e9cb1675f712cc refs/tags/1.0.8
+f43aff80213e6db9830dcc518c22c54818781e45 refs/tags/1.0.9
+1f1e9a9025043f09ef9b0e686c4019cc9bb2fecd refs/tags/1.1.0
+005de61322c6d32c5f792f9dfc56a0eee44b2753 refs/tags/1.1.1
+da61d3b8dade7137f64051c37a57cf593afc0d6d refs/tags/1.1.2
+580a53ca3be475e2358a17cfa10869587251d4db refs/tags/1.1.3
+ea66acfb9ac903d9d83f5de0f90654ca7fc812e2 refs/tags/1.1.4
+d10064560f733ffc0f7dccc0b99d00b5061f8cf5 refs/tags/1.1.5
+6989179be1da6395aed38f61e3a1ba1620717c42 refs/tags/1.1.6
+bcc7f5a977d49d5f60776dcc83d5cec0430baee0 refs/tags/1.1.7
+1fb97ec726ee25b94874a6b049695ad8ce34117c refs/tags/3.0.0
+baee39b6d834a15f775ec92e2f05fe9728531138 refs/tags/3.0.1
+b53f218ea7e0145dbf3bcc95b06ab2fa16bf16c2 refs/tags/3.1.0
+3b6d656902cd88e40e368b36230c33278e06002f refs/tags/3.1.1
+7c38b4df93061c973a9667b5ad69c60a7cd8f868 refs/tags/3.2.0
+1c70d851a6ed18aac6f9cb56fac5365f743f6d18 refs/tags/3.2.1
